@@ -1,0 +1,44 @@
+{
+    "presets": [
+        // [
+        //     "@babel/preset-env",
+        //     {
+        //         "useBuiltIns": "usage",
+        //         "corejs": 3
+        //     }
+        // ],
+        "@babel/preset-env",
+        "@babel/preset-react",
+        "react-app"
+    ],
+    "plugins": [
+        // [
+        //     "import",
+        //     {
+        //         "libraryName": "antd",
+        //         "style": "css"
+        //     }
+        // ],
+        [
+            "import",
+            {
+                "libraryName": "antd-mobile",
+                "style": "css"
+            }
+        ],
+        [
+            "@babel/plugin-proposal-decorators",
+            {
+                "legacy": true
+            }
+        ],
+        "@babel/plugin-syntax-dynamic-import",
+        "@babel/plugin-proposal-class-properties",
+        [
+            "@babel/plugin-transform-runtime",
+            {
+                "corejs": 3
+            }
+        ]
+    ]
+}
