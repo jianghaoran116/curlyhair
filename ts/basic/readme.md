@@ -20,3 +20,13 @@ TS自动尝试推断变量的类型
 - private  
   可以在类内调用  
 - protected  
+
+# 联合类型和类型保护  
+- 类型断言 as  
+  ``` javascript  
+  if (xxx.props) {
+    animal as xxx
+  }
+  ```  
+- if xxx in ccc  
+  ccc.xxx
