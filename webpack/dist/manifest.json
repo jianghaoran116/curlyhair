@@ -1,0 +1,6 @@
+{
+  "main.js": "automain.js",
+  "runtime~main.js": "autoruntime~main.js",
+  "src_info_js.js": "autosrc_info_js.js",
+  "vendors-node_modules_mobx_dist_mobx_esm_js.js": "autovendors-node_modules_mobx_dist_mobx_esm_js.js"
+}

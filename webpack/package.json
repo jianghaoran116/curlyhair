@@ -1,0 +1,21 @@
+{
+  "name": "curlyhair-webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --config webpack.dev.js",
+    "dev:dll": "webpack --config webpack.dll.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^5.9.0",
+    "webpack-cli": "^4.2.0"
+  },
+  "devDependencies": {
+    "lodash": "^4.17.20",
+    "mobx": "^6.0.4",
+    "webpack-manifest-plugin": "^3.0.0"
+  }
+}

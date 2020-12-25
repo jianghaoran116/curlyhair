@@ -91,3 +91,11 @@ const demo1 = Demo.getInstance();
 const demo2 = Demo.getInstance();
 console.log(demo1.name);
 console.log(demo2.name);
+
+const lists: (string | number)[] = [];
+
+const showTipsHandle = (type: number, index: number) => {
+  lists[type] = 1;
+}
+
+showTipsHandle(1, 2);
