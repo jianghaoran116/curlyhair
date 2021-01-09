@@ -6,6 +6,9 @@
   "homepage": "https://github.com/jianghaoran116/curlyhair#readme",
   "license": "ISC",
   "main": "lib/main.js",
+  "bin": {
+    "biz-cli-dev": "bin/index.js"
+  },
   "directories": {
     "lib": "lib",
     "test": "__tests__"
