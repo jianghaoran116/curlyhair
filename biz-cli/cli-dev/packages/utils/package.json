@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/jianghaoran116/curlyhair/issues"
   },
-  "gitHead": "5ee13fed543568a2e50c49fd02f4385446877298"
+  "gitHead": "57ea79ea3063fee099742d8c4a5f0fd6fd8a7fd9",
+  "publishConfig": {
+    "access": "public"
+  }
 }
