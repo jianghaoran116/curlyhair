@@ -1,0 +1,26 @@
+{
+  "name": "@curlyhair-biz-cli-dev/utils",
+  "version": "1.0.0",
+  "description": "curlyhair-biz-cli-dev utils",
+  "author": "jianghaoran <jianghaoran@outlook.com>",
+  "homepage": "https://github.com/jianghaoran116/curlyhair#readme",
+  "license": "ISC",
+  "main": "lib/main.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jianghaoran116/curlyhair.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/jianghaoran116/curlyhair/issues"
+  }
+}
