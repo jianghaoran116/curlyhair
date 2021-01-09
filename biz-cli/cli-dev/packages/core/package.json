@@ -1,6 +1,6 @@
 {
   "name": "@curlyhair-biz-cli-dev/core",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "description": "curlyhair-biz-cli-dev core",
   "author": "jianghaoran <jianghaoran@outlook.com>",
   "homepage": "https://github.com/jianghaoran116/curlyhair#readme",
@@ -25,5 +25,6 @@
   },
   "dependencies": {
     "@curlyhair-biz-cli-dev/utils": "^1.0.2"
-  }
+  },
+  "gitHead": "985304fbb8fc269d7672d79bdf78c539a1a4d44a"
 }
