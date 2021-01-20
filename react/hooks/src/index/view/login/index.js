@@ -4,6 +4,12 @@
  * @description Hooks并不是神秘 它就是函数式组件
  * 更准确的概述是 有状态的函数式组件
  */
+
+import eg from "@index/view/examples/ep1";
+
+export default eg;
+
+
 // ----------------------------eg1 start------------------------------------
 // import React, { useState } from 'react';
 
@@ -213,39 +219,39 @@
 // ----------------------------eg5 end--------------------------------------
 
 // ----------------------------eg6 start------------------------------------
-import React, { useMemo, useState, useCallback } from 'react';
-import { Button } from 'antd-mobile';
+// import React, { useMemo, useState, useCallback } from 'react';
+// import { Button } from 'antd-mobile';
 
-export default function App() {
-  const [target, setTarget] = useState(0);
-  const [other, setOther] = useState(0)
+// export default function App() {
+//   const [target, setTarget] = useState(0);
+//   const [other, setOther] = useState(0)
 
-  const sum = useMemo(() => {
-    console.log('重新计算一次');
-    let _sum = 0;
-    for (let i = 1; i <= target; i++) {
-      _sum += i;
-    }
-    return _sum;
-  }, [target]);
+//   const sum = useMemo(() => {
+//     console.log('重新计算一次');
+//     let _sum = 0;
+//     for (let i = 1; i <= target; i++) {
+//       _sum += i;
+//     }
+//     return _sum;
+//   }, [target]);
 
-  const inputChange = useCallback((e) => {
-    console.log(e.target.value);
-  }, []);
+//   const inputChange = useCallback((e) => {
+//     console.log(e.target.value);
+//   }, []);
 
-  return (
-    <div style={{ width: '200px', margin: 'auto' }}>
-      <input type="text" onChange={inputChange} />
-      <div style={{ width: '80px', margin: '100px auto', fontSize: '40px' }}>{target} {sum}</div>
-      <Button onClick={() => setTarget(target + 1)}>递增</Button>
-      <Button onClick={() => setTarget(target - 1)}>递减</Button>
+//   return (
+//     <div style={{ width: '200px', margin: 'auto' }}>
+//       <input type="text" onChange={inputChange} />
+//       <div style={{ width: '80px', margin: '100px auto', fontSize: '40px' }}>{target} {sum}</div>
+//       <Button onClick={() => setTarget(target + 1)}>递增</Button>
+//       <Button onClick={() => setTarget(target - 1)}>递减</Button>
 
-      <div style={{ width: '80px', margin: '100px auto', fontSize: '20px' }}>干扰项 {other}</div>
-      <Button onClick={() => setOther(other + 1)}>递增</Button>
-      <Button onClick={() => setOther(other - 1)}>递减</Button>
-    </div>
-  )
-}
+//       <div style={{ width: '80px', margin: '100px auto', fontSize: '20px' }}>干扰项 {other}</div>
+//       <Button onClick={() => setOther(other + 1)}>递增</Button>
+//       <Button onClick={() => setOther(other - 1)}>递减</Button>
+//     </div>
+//   )
+// }
 // ----------------------------eg6 end--------------------------------------
 
 // ----------------------------eg7 start------------------------------------
