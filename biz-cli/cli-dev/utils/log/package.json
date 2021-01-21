@@ -1,14 +1,14 @@
 {
-  "name": "@curlyhair-biz-cli-dev/utils",
-  "version": "1.0.6",
-  "description": "curlyhair-biz-cli-dev utils",
+  "name": "@curlyhair-biz-cli-dev/log",
+  "version": "1.0.0",
+  "description": "log",
+  "keywords": [
+    "log"
+  ],
   "author": "jianghaoran <jianghaoran@outlook.com>",
   "homepage": "https://github.com/jianghaoran116/curlyhair#readme",
   "license": "ISC",
-  "main": "lib/main.js",
-  "bin": {
-    "biz-cli-dev": "bin/index.js"
-  },
+  "main": "lib/index.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -16,6 +16,9 @@
   "files": [
     "lib"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jianghaoran116/curlyhair.git"
@@ -26,8 +29,7 @@
   "bugs": {
     "url": "https://github.com/jianghaoran116/curlyhair/issues"
   },
-  "gitHead": "57ea79ea3063fee099742d8c4a5f0fd6fd8a7fd9",
-  "publishConfig": {
-    "access": "public"
+  "dependencies": {
+    "npmlog": "^4.1.2"
   }
 }
