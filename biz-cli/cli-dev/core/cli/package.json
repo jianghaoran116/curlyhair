@@ -28,7 +28,6 @@
   },
   "dependencies": {
     "@curlyhair-biz-cli-dev/log": "file:../../utils/log",
-    "@curlyhair-biz-cli-dev/utils": "file:../../utils",
     "import-local": "^3.0.2",
     "npmlog": "^4.1.2",
     "path-exists": "^4.0.0",
