@@ -28,10 +28,12 @@
   },
   "dependencies": {
     "@curlyhair-biz-cli-dev/log": "file:../../utils/log",
+    "colors": "^1.4.0",
     "import-local": "^3.0.2",
     "npmlog": "^4.1.2",
     "path-exists": "^4.0.0",
     "root-check": "^1.0.0",
+    "semver": "^7.3.4",
     "user-home": "^2.0.0"
   },
   "gitHead": "57ea79ea3063fee099742d8c4a5f0fd6fd8a7fd9",
