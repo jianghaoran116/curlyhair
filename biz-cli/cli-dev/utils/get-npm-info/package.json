@@ -1,5 +1,5 @@
 {
-  "name": "get-npm-info",
+  "name": "@curlyhair-biz-cli-dev/get-npm-info",
   "version": "1.0.12",
   "description": "> TODO: description",
   "author": "jianghaoran116 <jianghaoran@outlook.com>",
@@ -27,5 +27,6 @@
     "axios": "^0.21.1",
     "semver": "^7.3.4",
     "url-join": "^4.0.1"
-  }
+  },
+  "gitHead": "625117ff47b700d50c76b283b75b213202a6f7c1"
 }
