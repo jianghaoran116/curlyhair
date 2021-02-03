@@ -1,6 +1,6 @@
 {
   "name": "@curlyhair-biz-cli-dev/get-npm-info",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "> TODO: description",
   "author": "jianghaoran116 <jianghaoran@outlook.com>",
   "homepage": "https://github.com/jianghaoran116/curlyhair#readme",
@@ -16,6 +16,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jianghaoran116/curlyhair.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
