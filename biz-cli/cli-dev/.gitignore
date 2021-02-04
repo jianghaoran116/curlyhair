@@ -6,6 +6,7 @@
 *.njsproj
 *.sln
 .vscode
+.swp
 
 # Logs
 logs

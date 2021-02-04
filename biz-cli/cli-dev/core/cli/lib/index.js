@@ -4,13 +4,16 @@ const path = require('path');
 const userHome = require('user-home');
 const colors = require('colors/safe');
 const semver = require('semver');
+const commander = require('commander');
 const pathExists = require('path-exists').sync;
 
 const log = require('@curlyhair-biz-cli-dev/log')
+const init = require('@curlyhair-biz-cli-dev/init');
 const pkg = require("../package.json");
 const constant = require('./const');
 
-let args;
+let args; // 输入的参数
+const program = new commander.Command(); // 单例
 
 async function core() {
   try {
@@ -18,12 +21,54 @@ async function core() {
     checkNodeVersion();
     checkRoot();
     checkUserHome();
-    checkInputArgs();
+    // checkInputArgs();
     checkEnv();
     await checkGlobalUpdate();
+    registerCommand();
     log.verbose('debug', 'test debug log');
   } catch (e) {
     log.error(e.message);
+  }
+}
+
+// 注册命令
+function registerCommand() {
+  program
+    .name(Object.keys(pkg.bin)[0])
+    .usage('<command> [options]')
+    .option('-d, --debug', '是否开启调试模式', false)
+    .version(pkg.version);
+
+  program
+    .command('init [projectName]')
+    .option('-f, --force', '是否强制初始化项目')
+    .action((projectName, cmdObj) => {
+      init(projectName, cmdObj);
+    })
+
+  // 开启debug模式
+  program.on('option:debug', function() {
+    if (program._optionValues.debug) {
+      process.env.LOG_LEVEL = 'verbose';
+    } else {
+      process.env.LOG_LEVEL = 'info';
+    }
+    log.level = process.env.LOG_LEVEL;
+  })
+
+  // 对未知命令的监听
+  program.on('command:*', function(obj) {
+    const availableCommands = program.commands.map(cmd => cmd.name());
+    console.log(colors.red('未知的命令：' + obj[0]));
+    if (availableCommands.length > 0) {
+      console.log(colors.red('可用命令：' + availableCommands.join(',')));
+    }
+  });
+
+  program.parse(process.argv);
+  // 没有输入任何命令默认显示的内容
+  if (program.args && program.args.length < 1) {
+    program.outputHelp();
   }
 }
 
