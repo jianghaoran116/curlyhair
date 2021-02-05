@@ -8,7 +8,8 @@ const commander = require('commander');
 const pathExists = require('path-exists').sync;
 
 const log = require('@curlyhair-biz-cli-dev/log')
-const init = require('@curlyhair-biz-cli-dev/init');
+// const init = require('@curlyhair-biz-cli-dev/init');
+const exec = require('@curlyhair-biz-cli-dev/exec');
 const pkg = require("../package.json");
 const constant = require('./const');
 
@@ -17,13 +18,7 @@ const program = new commander.Command(); // 单例
 
 async function core() {
   try {
-    checkPkgVersion();
-    checkNodeVersion();
-    checkRoot();
-    checkUserHome();
-    // checkInputArgs();
-    checkEnv();
-    await checkGlobalUpdate();
+    prepare();
     registerCommand();
     log.verbose('debug', 'test debug log');
   } catch (e) {
@@ -36,24 +31,30 @@ function registerCommand() {
   program
     .name(Object.keys(pkg.bin)[0])
     .usage('<command> [options]')
-    .option('-d, --debug', '是否开启调试模式', false)
-    .version(pkg.version);
+    .version(pkg.version)
+    .option('-tp, --targetPath <targetPath>', '是否指定本地调试文件路径', '')
+    .option('-d, --debug', '是否开启调试模式', false);
 
   program
     .command('init [projectName]')
     .option('-f, --force', '是否强制初始化项目')
-    .action((projectName, cmdObj) => {
-      init(projectName, cmdObj);
-    })
+    // .option('-tp, --targetPath <targetPath>', '是否指定本地调试文件路径', '')
+    .action(exec)
 
   // 开启debug模式
   program.on('option:debug', function() {
-    if (program._optionValues.debug) {
+    if (program.opts().debug) {
       process.env.LOG_LEVEL = 'verbose';
     } else {
       process.env.LOG_LEVEL = 'info';
     }
     log.level = process.env.LOG_LEVEL;
+  })
+
+  // 指定target path
+  program.on('option:targetPath', function() {
+    // console.log('program.opts().targetPath:::', program.opts().targetPath);
+    process.env.CLI_TARGET_PATH = program.opts().targetPath;
   })
 
   // 对未知命令的监听
@@ -72,16 +73,25 @@ function registerCommand() {
   }
 }
 
-// 检查node版本号
-function checkNodeVersion() {
-  // 获取当前版本号 - 比对版本号
-  const currentVersion = process.version;
-  const lowestVersion = constant.LOWEST_NODE_VERSION;
-
-  if (!semver.gte(currentVersion, lowestVersion)) {
-    throw new Error(colors.red(`imooc-cli 需要安装 v${lowestVersion} 以上版本的 Node.js`));
-  }
+// 准备阶段
+async function prepare() {
+  checkPkgVersion();
+  checkRoot();
+  checkUserHome();
+  checkEnv();
+  await checkGlobalUpdate();
 }
+
+// 检查node版本号
+// function checkNodeVersion() {
+//   // 获取当前版本号 - 比对版本号
+//   const currentVersion = process.version;
+//   const lowestVersion = constant.LOWEST_NODE_VERSION;
+
+//   if (!semver.gte(currentVersion, lowestVersion)) {
+//     throw new Error(colors.red(`imooc-cli 需要安装 v${lowestVersion} 以上版本的 Node.js`));
+//   }
+// }
 
 // 判断用户目录
 function checkUserHome() {
@@ -94,28 +104,11 @@ function checkUserHome() {
 function checkRoot() {
   const rootCheck = require('root-check');
   rootCheck();
-  console.log(process.geteuid());
 }
 
 // 判断版本号
 function checkPkgVersion() {
   log.info("cli-version", pkg.version);
-}
-
-// 检查入参 - 看看是不是需要进入调试模式
-function checkInputArgs() {
-  const minimist = require('minimist');
-  args = minimist(process.argv.slice(2));
-  checkArgs();
-}
-
-function checkArgs() {
-  if (args.debug) {
-    process.env.LOG_LEVEL = 'verbose';
-  } else {
-    process.env.LOG_LEVEL = 'info';
-  }
-  log.level = process.env.LOG_LEVEL;
 }
 
 function checkEnv() {

@@ -1,8 +1,8 @@
 {
-  "name": "@curlyhair-biz-cli-dev/utils",
+  "name": "@curlyhair-biz-cli-dev/exec",
   "version": "1.0.13",
-  "description": "curlyhair-biz-cli-dev utils",
-  "author": "jianghaoran <jianghaoran@outlook.com>",
+  "description": "> TODO: description",
+  "author": "jianghaoran116 <jianghaoran@outlook.com>",
   "homepage": "https://github.com/jianghaoran116/curlyhair#readme",
   "license": "ISC",
   "main": "lib/index.js",
@@ -13,6 +13,9 @@
   "files": [
     "lib"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jianghaoran116/curlyhair.git"
@@ -20,11 +23,11 @@
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
+  "devDependencies": {
+    "@curlyhair-biz-cli-dev/package": "file:../../models/package",
+    "@curlyhair-biz-cli-dev/log": "file:../../utils/log"
+  },
   "bugs": {
     "url": "https://github.com/jianghaoran116/curlyhair/issues"
-  },
-  "gitHead": "3b63bc1dc394d6c427afa4883796c30a049a69f9",
-  "publishConfig": {
-    "access": "public"
   }
 }

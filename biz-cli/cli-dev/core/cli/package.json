@@ -5,7 +5,7 @@
   "author": "jianghaoran <jianghaoran@outlook.com>",
   "homepage": "https://github.com/jianghaoran116/curlyhair#readme",
   "license": "ISC",
-  "main": "lib/core.js",
+  "main": "lib/index.js",
   "bin": {
     "biz-cli-dev": "bin/index.js"
   },
@@ -30,11 +30,11 @@
     "@curlyhair-biz-cli-dev/get-npm-info": "file:../../utils/get-npm-info",
     "@curlyhair-biz-cli-dev/log": "file:../../utils/log",
     "@curlyhair-biz-cli-dev/init": "file:../../commands/init",
+    "@curlyhair-biz-cli-dev/exec": "file:../exec",
     "colors": "^1.4.0",
     "commander": "^7.0.0",
     "dotenv": "^8.2.0",
     "import-local": "^3.0.2",
-    "minimist": "^1.2.5",
     "npmlog": "^4.1.2",
     "path-exists": "^4.0.0",
     "root-check": "^1.0.0",
