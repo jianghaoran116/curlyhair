@@ -1,7 +1,11 @@
 /**
  * 
  */
+
+const path = require('path');
+const pkgDir = require('pkg-dir').sync;
 const { isObject } = require('@curlyhair-biz-cli-dev/utils');
+const formatPath = require('@curlyhair-biz-cli-dev/format-path');
 
 class Package {
     /**
@@ -13,6 +17,7 @@ class Package {
      * optiosn.version - package的版本
      */
     constructor(options) {
+        console.log(options)
         if (!options) {
             throw new Error('Package类的options参数不能为空！');
         }
@@ -32,7 +37,26 @@ class Package {
 
     // 更新package
 
-    // 获取入口文件的路径
+    /**
+     * 获取文件入口路径
+     * 1. 拿到npm的package.json
+     * 2. 读取package.json
+     * 3. 获取main或者bing
+     * 4. 返回路径 兼容macOS windows
+     */
+    getRootFilePath() {
+        const dir = pkgDir(this.targetPath);
+
+        if (dir) {
+            // 读取package.json
+            const pkgFile = require(path.resolve(dir, 'package.json'));
+            if (pkgFile && pkgFile.main) {
+                return formatPath(path.resolve(dir, pkgFile.main));
+            }
+        }
+
+        return null;
+    }
 }
 
 module.exports = Package;
