@@ -1,5 +1,3 @@
-"use strict";
-
 const path = require('path');
 const userHome = require('user-home');
 const colors = require('colors/safe');

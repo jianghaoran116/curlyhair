@@ -1,7 +1,22 @@
-'use strict';
+const Command = require('@curlyhair-biz-cli-dev/command');
+const log = require('@curlyhair-biz-cli-dev/log');
+
+class InitCommand extends Command {
+    init() {
+      this.projectName = this._argv[0] || '';
+      this.force = !!this._cmd.force;
+      log.verbose('projectName', this.projectName);
+      log.verbose('force', this.force);
+    }
+  
+    exec() {
+      console.log('init的业务逻辑');
+    }
+  }
+
+function init(...argv) {
+    return new InitCommand(argv);
+}
 
 module.exports = init;
-
-function init(projectName, cmdObj) {
-    console.log('run command init');
-}
+module.exports.InitCommand = InitCommand;

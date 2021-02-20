@@ -1,6 +1,6 @@
 {
-  "name": "@curlyhair-biz-cli-dev/init",
-  "version": "1.0.13",
+  "name": "@curlyhair-biz-cli-dev/command",
+  "version": "1.0.0",
   "description": "> TODO: description",
   "author": "jianghaoran116 <jianghaoran@outlook.com>",
   "homepage": "https://github.com/jianghaoran116/curlyhair#readme",
@@ -13,6 +13,9 @@
   "files": [
     "lib"
   ],
+  "publishConfig": {
+    "registry": "http://registry.npm.baidu-int.com/"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jianghaoran116/curlyhair.git"
@@ -24,7 +27,8 @@
     "url": "https://github.com/jianghaoran116/curlyhair/issues"
   },
   "dependencies": {
-    "@curlyhair-biz-cli-dev/command": "file:../../models/command",
-    "@curlyhair-biz-cli-dev/log": "file:../../utils/log"
+    "@curlyhair-biz-cli-dev/log": "file:../../utils/log",
+    "colors": "^1.4.0",
+    "semver": "^7.3.4"
   }
 }
