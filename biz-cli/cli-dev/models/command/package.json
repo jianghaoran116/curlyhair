@@ -14,7 +14,7 @@
     "lib"
   ],
   "publishConfig": {
-    "registry": "http://registry.npm.baidu-int.com/"
+    "access": "public"
   },
   "repository": {
     "type": "git",
@@ -31,5 +31,5 @@
     "colors": "^1.4.0",
     "semver": "^7.3.4"
   },
-  "gitHead": "c5a77c08f453298588fe1dead5a2eb045b87a39a"
+  "gitHead": "b7509d85c32d2999ed4bbdcac5916d7c14d37d99"
 }
