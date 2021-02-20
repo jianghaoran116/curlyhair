@@ -24,7 +24,8 @@
     "url": "https://github.com/jianghaoran116/curlyhair/issues"
   },
   "dependencies": {
-    "@curlyhair-biz-cli-dev/command": "file:../../models/command",
-    "@curlyhair-biz-cli-dev/log": "file:../../utils/log"
-  }
+    "@curlyhair-biz-cli-dev/command": "^1.0.14",
+    "@curlyhair-biz-cli-dev/log": "^1.0.14"
+  },
+  "gitHead": "a82d09c9e02378e7d2b3ab50ad10a2276c8a0906"
 }

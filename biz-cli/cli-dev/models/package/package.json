@@ -24,13 +24,14 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "devDependencies": {
-    "@curlyhair-biz-cli-dev/format-path": "file:../../utils/format-path",
-    "@curlyhair-biz-cli-dev/utils": "file:../../utils/utils"
+    "@curlyhair-biz-cli-dev/format-path": "^1.0.14",
+    "@curlyhair-biz-cli-dev/utils": "^1.0.14"
   },
   "bugs": {
     "url": "https://github.com/jianghaoran116/curlyhair/issues"
   },
   "dependencies": {
     "pkg-dir": "^5.0.0"
-  }
+  },
+  "gitHead": "a82d09c9e02378e7d2b3ab50ad10a2276c8a0906"
 }

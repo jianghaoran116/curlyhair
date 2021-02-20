@@ -27,10 +27,10 @@
     "url": "https://github.com/jianghaoran116/curlyhair/issues"
   },
   "dependencies": {
-    "@curlyhair-biz-cli-dev/exec": "file:../exec",
-    "@curlyhair-biz-cli-dev/get-npm-info": "file:../../utils/get-npm-info",
-    "@curlyhair-biz-cli-dev/init": "file:../../commands/init",
-    "@curlyhair-biz-cli-dev/log": "file:../../utils/log",
+    "@curlyhair-biz-cli-dev/exec": "^1.0.14",
+    "@curlyhair-biz-cli-dev/get-npm-info": "^1.0.14",
+    "@curlyhair-biz-cli-dev/init": "^1.0.14",
+    "@curlyhair-biz-cli-dev/log": "^1.0.14",
     "colors": "^1.4.0",
     "commander": "^7.0.0",
     "dotenv": "^8.2.0",
@@ -41,7 +41,7 @@
     "semver": "^7.3.4",
     "user-home": "^2.0.0"
   },
-  "gitHead": "3b63bc1dc394d6c427afa4883796c30a049a69f9",
+  "gitHead": "a82d09c9e02378e7d2b3ab50ad10a2276c8a0906",
   "publishConfig": {
     "access": "public"
   }
