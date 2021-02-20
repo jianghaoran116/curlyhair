@@ -1,6 +1,6 @@
 {
   "name": "@curlyhair-biz-cli-dev/exec",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "> TODO: description",
   "author": "jianghaoran116 <jianghaoran@outlook.com>",
   "homepage": "https://github.com/jianghaoran116/curlyhair#readme",
@@ -24,8 +24,8 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "devDependencies": {
-    "@curlyhair-biz-cli-dev/log": "^1.0.18",
-    "@curlyhair-biz-cli-dev/package": "^1.0.18"
+    "@curlyhair-biz-cli-dev/log": "^1.0.19",
+    "@curlyhair-biz-cli-dev/package": "^1.0.19"
   },
   "bugs": {
     "url": "https://github.com/jianghaoran116/curlyhair/issues"
