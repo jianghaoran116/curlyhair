@@ -28,7 +28,10 @@
   },
   "dependencies": {
     "@curlyhair-biz-cli-dev/command": "^1.0.19",
-    "@curlyhair-biz-cli-dev/log": "^1.0.19"
+    "@curlyhair-biz-cli-dev/log": "^1.0.19",
+    "fs-extra": "^9.1.0",
+    "inquirer": "^7.3.3",
+    "semver": "^7.3.4"
   },
   "gitHead": "865e8b653b62381afed640d1d99ae9ed2a7f0d28"
 }
