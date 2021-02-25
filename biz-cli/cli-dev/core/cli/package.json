@@ -27,7 +27,7 @@
     "url": "https://github.com/jianghaoran116/curlyhair/issues"
   },
   "dependencies": {
-    "@curlyhair-biz-cli-dev/exec": "^1.0.19",
+    "@curlyhair-biz-cli-dev/exec": "file:../exec",
     "@curlyhair-biz-cli-dev/get-npm-info": "^1.0.19",
     "@curlyhair-biz-cli-dev/init": "^1.0.19",
     "@curlyhair-biz-cli-dev/log": "^1.0.19",

@@ -27,7 +27,7 @@
     "url": "https://github.com/jianghaoran116/curlyhair/issues"
   },
   "dependencies": {
-    "@curlyhair-biz-cli-dev/command": "^1.0.19",
+    "@curlyhair-biz-cli-dev/command": "file:../../models/command",
     "@curlyhair-biz-cli-dev/log": "^1.0.19",
     "fs-extra": "^9.1.0",
     "inquirer": "^7.3.3",

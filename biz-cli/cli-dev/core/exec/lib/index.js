@@ -47,10 +47,7 @@ async function exec() {
             packageVersion,
         });
     }
-
-    console.log("rootfielpath:::", pkg.getRootFilePath());
     const rootFile = pkg.getRootFilePath();
-
 
     if (rootFile) {
         try {
