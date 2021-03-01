@@ -10,4 +10,4 @@ const mongodbDbName = 'biz-cli';
 module.exports = {
     mongodbUrl,
     mongodbDbName,
-}
+};

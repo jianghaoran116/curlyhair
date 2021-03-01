@@ -5,6 +5,7 @@ const semver = require('semver');
 const Command = require("@curlyhair-biz-cli-dev/command");
 const log = require("@curlyhair-biz-cli-dev/log");
 const inquirer = require("inquirer");
+const getProjectTemplate = require("./get-project-template");
 
 const TYPE_PROJECT = 'project'; // 用户选择创建的项目类型 - 项目
 const TYPE_COMPONENT = 'component'; // 用户选择创建的项目类型 - 组件
@@ -16,16 +17,35 @@ class InitCommand extends Command {
         log.verbose("force", this.force);
     }
 
-    exec() {
+    createTemplateChoice() {
+        return this.template.map(item => ({
+            value: item.npmName,
+            name: item.name,
+        }));
+    }
+
+    async exec() {
         try {
             // 准备阶段
-            this.prepare();
+            const projectInfo = await this.prepare();
+            if (projectInfo) {
+                log.verbose('projectInfo', projectInfo);
+                this.projectInfo = projectInfo;
+                await this.downloadTemplate();
+            }
         } catch(e) {
             log.error(e.message);
         }
     }
 
     async prepare() {
+        // 判断项目模版是否存在
+        const template = await getProjectTemplate();
+        if (!template || template.length === 0) {
+            throw new Error('项目模版不存在');
+        }
+        this.template = template;
+
         // 判断当前目录是否为空
         const localPath = process.cwd();
 
@@ -131,7 +151,12 @@ class InitCommand extends Command {
                             return v;
                         }
                     },
-                }
+                }, {
+                    type: 'list',
+                    name: 'projectTemplate',
+                    message: '请选择项目模板',
+                    choices: this.createTemplateChoice(),
+                },
             ]);
 
             projectInfo = {
@@ -156,6 +181,10 @@ class InitCommand extends Command {
         ))
         
         return fileList && fileList.length <= 0;
+    }
+
+    async downloadTemplate() {
+        console.log(this.projectInfo)
     }
 }
 

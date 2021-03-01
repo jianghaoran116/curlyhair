@@ -29,6 +29,7 @@
   "dependencies": {
     "@curlyhair-biz-cli-dev/command": "file:../../models/command",
     "@curlyhair-biz-cli-dev/log": "^1.0.19",
+    "@curlyhair-biz-cli-dev/request": "file:../../utils/request",
     "fs-extra": "^9.1.0",
     "inquirer": "^7.3.3",
     "semver": "^7.3.4"
