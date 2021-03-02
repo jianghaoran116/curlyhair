@@ -1,11 +1,15 @@
 const fs = require("fs");
+const path = require('path');
 const requirer = require("inquirer");
+const userHome = require('user-home');
 const fse = require("fs-extra");
 const semver = require('semver');
 const Command = require("@curlyhair-biz-cli-dev/command");
+const Package = require('@curlyhair-biz-cli-dev/package');
 const log = require("@curlyhair-biz-cli-dev/log");
 const inquirer = require("inquirer");
 const getProjectTemplate = require("./get-project-template");
+const { spinnerStart, sleep } = require('@curlyhair-biz-cli-dev/utils');
 
 const TYPE_PROJECT = 'project'; // 用户选择创建的项目类型 - 项目
 const TYPE_COMPONENT = 'component'; // 用户选择创建的项目类型 - 组件
@@ -184,7 +188,41 @@ class InitCommand extends Command {
     }
 
     async downloadTemplate() {
-        console.log(this.projectInfo)
+        const { projectTemplate } = this.projectInfo;
+        const templateInfo = this.template.find(item => item.npmName === projectTemplate);
+        const targetPath = path.resolve(userHome, '.biz-cli-dev', 'template');
+        const storeDir = path.resolve(userHome, '.biz-cli-dev', 'template', 'node_modules');
+        const { npmName, version } = templateInfo;
+        const templateNpm = new Package({
+          targetPath,
+          storeDir,
+          packageName: npmName,
+          packageVersion: version,
+        });
+        console.log('templateNpm:::', templateNpm);
+        if (!await templateNpm.exists()) {
+            const spinner = spinnerStart('正在下载模板...');
+            await sleep();
+            try {
+                await templateNpm.install();
+                log.success('下载模板成功');
+            } catch (e) {
+                throw e;
+            } finally {
+                spinner.stop(true);
+            }
+        } else {
+            const spinner = spinnerStart('正在更新模板...');
+            await sleep();
+            try {
+                await templateNpm.update();
+                log.success('更新模板成功');
+            } catch (e) {
+                throw e;
+            } finally {
+                spinner.stop(true);
+            }
+        }
     }
 }
 

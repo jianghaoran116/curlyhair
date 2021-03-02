@@ -31,6 +31,12 @@
     "url": "https://github.com/jianghaoran116/curlyhair/issues"
   },
   "dependencies": {
+    "@curlyhair-biz-cli-dev/format-path": "file:../../utils/format-path",
+    "@curlyhair-biz-cli-dev/get-npm-info": "file:../../utils/get-npm-info",
+    "@curlyhair-biz-cli-dev/utils": "file:../../utils/utils",
+    "fs-extra": "^9.0.1",
+    "npminstall": "^4.10.0",
+    "path-exists": "^4.0.0",
     "pkg-dir": "^5.0.0"
   },
   "gitHead": "865e8b653b62381afed640d1d99ae9ed2a7f0d28"

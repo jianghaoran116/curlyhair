@@ -28,11 +28,14 @@
   },
   "dependencies": {
     "@curlyhair-biz-cli-dev/command": "file:../../models/command",
+    "@curlyhair-biz-cli-dev/package": "file:../../models/package",
     "@curlyhair-biz-cli-dev/log": "^1.0.19",
     "@curlyhair-biz-cli-dev/request": "file:../../utils/request",
+    "@curlyhair-biz-cli-dev/utils": "file:../../utils/utils",
     "fs-extra": "^9.1.0",
     "inquirer": "^7.3.3",
-    "semver": "^7.3.4"
+    "semver": "^7.3.4",
+    "user-home": "^2.0.0"
   },
   "gitHead": "865e8b653b62381afed640d1d99ae9ed2a7f0d28"
 }
