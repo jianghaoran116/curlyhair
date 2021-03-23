@@ -45,11 +45,12 @@ class Package {
 
     // 判断当前Package是否存在
     async exists() {
+        // console.log(this.storeDir)
         if (this.storeDir) {
-        await this.prepare();
-        return pathExists(this.cacheFilePath);
+            await this.prepare();
+            return pathExists(this.cacheFilePath);
         } else {
-        return pathExists(this.targetPath);
+            return pathExists(this.targetPath);
         }
     }
 

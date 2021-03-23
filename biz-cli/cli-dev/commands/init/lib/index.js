@@ -36,10 +36,23 @@ class InitCommand extends Command {
                 log.verbose('projectInfo', projectInfo);
                 this.projectInfo = projectInfo;
                 await this.downloadTemplate();
+                await this.installTemplate();
             }
         } catch(e) {
             log.error(e.message);
         }
+    }
+
+    isDirEmpty(localPath) {
+        // console.log(localPath);
+        let fileList = fs.readdirSync(localPath);
+        // console.log(fileList);
+        // 文件过滤逻辑
+        fileList = fileList.filter(filename => (
+            !filename.startsWith('.') && ['node_modules'].indexOf(filename) < 0
+        ))
+        
+        return fileList && fileList.length <= 0;
     }
 
     async prepare() {
@@ -175,18 +188,6 @@ class InitCommand extends Command {
         return projectInfo
     }
 
-    isDirEmpty(localPath) {
-        // console.log(localPath);
-        let fileList = fs.readdirSync(localPath);
-        // console.log(fileList);
-        // 文件过滤逻辑
-        fileList = fileList.filter(filename => (
-            !filename.startsWith('.') && ['node_modules'].indexOf(filename) < 0
-        ))
-        
-        return fileList && fileList.length <= 0;
-    }
-
     async downloadTemplate() {
         const { projectTemplate } = this.projectInfo;
         const templateInfo = this.template.find(item => item.npmName === projectTemplate);
@@ -199,7 +200,9 @@ class InitCommand extends Command {
           packageName: npmName,
           packageVersion: version,
         });
-        console.log('templateNpm:::', templateNpm);
+
+        this.templateInfo = templateInfo;
+
         if (!await templateNpm.exists()) {
             const spinner = spinnerStart('正在下载模板...');
             await sleep();
@@ -223,6 +226,10 @@ class InitCommand extends Command {
                 spinner.stop(true);
             }
         }
+    }
+
+    async installTemplate() {
+        console.log('installTemplate:::', this.templateInfo);
     }
 }
 
