@@ -14,7 +14,7 @@
     "webpack-cli": "^4.2.0"
   },
   "devDependencies": {
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "mobx": "^6.0.4",
     "webpack-manifest-plugin": "^3.0.0"
   }
